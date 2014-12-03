@@ -30,10 +30,13 @@ gem 'jbuilder', '~> 2.0'
 
 group :development do
   # Use Capistrano for deployment
-  gem 'capistrano-rails'
-
+  gem 'capistrano', '~> 3.2.0', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
+  
   # Use debugger
-  gem 'debugger'
+  # gem 'debugger'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
