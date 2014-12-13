@@ -3,14 +3,14 @@
   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
     %i.glyphicon.glyphicon-user
     %span
-      Jane Doe
+      = current_admin.name
       %i.caret
   %ul.dropdown-menu
     / User image
     %li.user-header.bg-light-blue
       %img.img-circle{:alt => "User Image", :src => "assets/avatar5.png"}/
       %p
-        Jane Doe - Web Developer
+        = current_admin.name + " - #{current_admin.role_name}"
         %small Member since Nov. 2012
     / Menu Body
     %li.user-body
@@ -23,6 +23,6 @@
     / Menu Footer
     %li.user-footer
       .pull-left
-        %a.btn.btn-default.btn-flat{:href => "#"} Profile
+        = link_to('Profile', edit_admin_registration_path, class: "btn btn-default btn-flat")
       .pull-right
         = link_to('Sign out', destroy_admin_session_path, method: :delete, class: "btn btn-default btn-flat")

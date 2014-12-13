@@ -14,8 +14,10 @@
 ActiveRecord::Schema.define(version: 20141213111516) do
 
   create_table "admins", force: true do |t|
+    t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
+    t.string   "role"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -27,6 +29,9 @@ ActiveRecord::Schema.define(version: 20141213111516) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
 
   create_table "customers", force: true do |t|
     t.string   "name"
