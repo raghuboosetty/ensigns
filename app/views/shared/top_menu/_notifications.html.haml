@@ -1,0 +1,32 @@
+/ Notifications: style can be found in dropdown.less
+%li.dropdown.notifications-menu
+  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    %i.fa.fa-warning
+    %span.label.label-warning 10
+  %ul.dropdown-menu
+    %li.header You have 10 notifications
+    %li
+      / inner menu: contains the actual data
+      %ul.menu
+        %li
+          %a{:href => "#"}
+            %i.ion.ion-ios7-people.info
+            5 new members joined today
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-warning.danger
+            Very long description here that may not fit into the page and may cause design problems
+        %li
+          %a{:href => "#"}
+            %i.fa.fa-users.warning
+            5 new members joined
+        %li
+          %a{:href => "#"}
+            %i.ion.ion-ios7-cart.success
+            25 sales made
+        %li
+          %a{:href => "#"}
+            %i.ion.ion-ios7-person.danger
+            You changed your username
+    %li.footer
+      %a{:href => "#"} View all

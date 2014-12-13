@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 
+  token: MyString
+  size: MyString
+  code: MyString
+  wholesale_price: 9.99
+  retail_price: 9.99
+  selling_price: 9.99
+  discount: 9.99
+  status: MyString
+  payment_status: MyString
+  description: MyText
+  paid_amout: 9.99
+  photo: 
+
+two:
+  customer_id: 
+  token: MyString
+  size: MyString
+  code: MyString
+  wholesale_price: 9.99
+  retail_price: 9.99
+  selling_price: 9.99
+  discount: 9.99
+  status: MyString
+  payment_status: MyString
+  description: MyText
+  paid_amout: 9.99
+  photo: 

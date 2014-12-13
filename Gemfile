@@ -27,6 +27,17 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
+# markup
+gem 'haml-rails'
+
+# authentication
+gem 'devise'
+
+# attachments
+gem "paperclip", "~> 4.2"
+
+# admin
+gem "rails_admin"
 
 group :development do
   # Use Capistrano for deployment

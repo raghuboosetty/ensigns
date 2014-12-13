@@ -1,0 +1,45 @@
+%p#notice= notice
+
+%p
+  %b Customer:
+  = @item.customer
+%p
+  %b Token:
+  = @item.token
+%p
+  %b Size:
+  = @item.size
+%p
+  %b Code:
+  = @item.code
+%p
+  %b Wholesale price:
+  = @item.wholesale_price
+%p
+  %b Retail price:
+  = @item.retail_price
+%p
+  %b Selling price:
+  = @item.selling_price
+%p
+  %b Discount:
+  = @item.discount
+%p
+  %b Status:
+  = @item.status
+%p
+  %b Payment status:
+  = @item.payment_status
+%p
+  %b Description:
+  = @item.description
+%p
+  %b Paid amout:
+  = @item.paid_amout
+%p
+  %b Photo:
+  = image_tag @item.photo.url(:thumb)
+
+= link_to 'Edit', edit_item_path(@item)
+\|
+= link_to 'Back', items_path

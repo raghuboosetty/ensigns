@@ -1,0 +1,45 @@
+%h1 Listing items
+
+%table
+  %thead
+    %tr
+      %th Customer
+      %th Token
+      %th Size
+      %th Code
+      %th Wholesale price
+      %th Retail price
+      %th Selling price
+      %th Discount
+      %th Status
+      %th Payment status
+      %th Description
+      %th Paid amout
+      %th Photo
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td= item.customer
+        %td= item.token
+        %td= item.size
+        %td= item.code
+        %td= item.wholesale_price
+        %td= item.retail_price
+        %td= item.selling_price
+        %td= item.discount
+        %td= item.status
+        %td= item.payment_status
+        %td= item.description
+        %td= item.paid_amout
+        %td= item.photo
+        %td= link_to 'Show', item
+        %td= link_to 'Edit', edit_item_path(item)
+        %td= link_to 'Destroy', item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Item', new_item_path
