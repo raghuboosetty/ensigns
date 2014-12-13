@@ -8,7 +8,7 @@
   %ul.dropdown-menu
     / User image
     %li.user-header.bg-light-blue
-      %img.img-circle{:alt => "User Image", :src => "assets/avatar3.png"}/
+      %img.img-circle{:alt => "User Image", :src => "assets/avatar5.png"}/
       %p
         Jane Doe - Web Developer
         %small Member since Nov. 2012
@@ -25,4 +25,4 @@
       .pull-left
         %a.btn.btn-default.btn-flat{:href => "#"} Profile
       .pull-right
-        %a.btn.btn-default.btn-flat{:href => "#"} Sign out
+        = link_to('Sign out', destroy_admin_session_path, method: :delete, class: "btn btn-default btn-flat")

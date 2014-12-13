@@ -1,11 +1,14 @@
 !!!
-%html
+%html.bg-black
   %head
+    %meta{:charset => "UTF-8"}
     %title Ensigns
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    = csrf_meta_tags
-  %body
-    %p.notice= notice
-    %p.alert= alert
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true          
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no", :name => "viewport"}
+    %script{src: "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
+    %script{src: "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"}
+  %body.bg-black
     = yield
+    / jQuery 2.0.2
+    %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"}
