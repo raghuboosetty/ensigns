@@ -8,10 +8,18 @@
   %ul.dropdown-menu
     / User image
     %li.user-header.bg-light-blue
-      %img.img-circle{:alt => "Admin Image", :src => admin_image_path}/
+      %img.img-circle{:alt => "User Image", :src => "assets/avatars/avatar5.png"}/
       %p
         = current_admin.name + " - #{current_admin.role_name}"
         %small Member since #{current_admin.created_at.to_s(:month_and_year)}
+    / Menu Body
+    %li.user-body
+      .col-xs-4.text-center
+        %a{:href => "#"} Followers
+      .col-xs-4.text-center
+        %a{:href => "#"} Sales
+      .col-xs-4.text-center
+        %a{:href => "#"} Friends
     / Menu Footer
     %li.user-footer
       .pull-left

@@ -4,5 +4,6 @@ if !admin
                 password: 'admin1234',
                 password_confirmation: 'admin1234',
                 name: "Sneha",
-                role: "super"
+                role: "super",
+                gender: "f"
 end

@@ -10,6 +10,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration
 
       # Role
       t.string :role
+      t.string :gender
       
       ## Recoverable
       t.string   :reset_password_token
