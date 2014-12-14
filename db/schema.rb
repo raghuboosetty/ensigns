@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20141213111516) do
     t.string   "status"
     t.string   "payment_status"
     t.text     "description"
-    t.decimal  "paid_amout",         precision: 10, scale: 0
+    t.decimal  "paid_amount",        precision: 10, scale: 0
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"

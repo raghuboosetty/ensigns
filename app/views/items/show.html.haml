@@ -1,45 +1,44 @@
-%p#notice= notice
-
-%p
-  %b Customer:
-  = @item.customer
-%p
-  %b Token:
-  = @item.token
-%p
-  %b Size:
-  = @item.size
-%p
-  %b Code:
-  = @item.code
-%p
-  %b Wholesale price:
-  = @item.wholesale_price
-%p
-  %b Retail price:
-  = @item.retail_price
-%p
-  %b Selling price:
-  = @item.selling_price
-%p
-  %b Discount:
-  = @item.discount
-%p
-  %b Status:
-  = @item.status
-%p
-  %b Payment status:
-  = @item.payment_status
-%p
-  %b Description:
-  = @item.description
-%p
-  %b Paid amout:
-  = @item.paid_amout
-%p
-  %b Photo:
-  = image_tag @item.photo.url(:thumb)
-
-= link_to 'Edit', edit_item_path(@item)
-\|
-= link_to 'Back', items_path
+.col-md-6
+  .box.box-solid
+    .box-header
+      %i.fa.fa-desktop
+      %h3.box-title= @item.code
+    / /.box-header
+    .box-body
+      %p#notice= notice
+      %dl.dl-horizontal
+        %dt Token
+        %dd= @item.token
+        %dt Size
+        %dd= @item.size
+        %dt Code
+        %dd= @item.code
+        %dt Wholesale price:
+        %dd= @item.wholesale_price
+        %dt Retail price:
+        %dd= @item.retail_price
+        %dt Selling price:
+        %dd= @item.selling_price
+        %dt Discount:
+        %dd= @item.discount
+        %dt Status:
+        %dd= @item.status
+        %dt Payment status:
+        %dd= @item.payment_status
+        %dt Customer:
+        %dd
+          - if @item.customer
+            = link_to @item.customer.try(:name), customer_path(@item.customer)
+        %dt Paid amout:
+        %dd= @item.paid_amount
+        %dt Description:
+        %dd= @item.description
+      = link_to 'Edit', edit_item_path(@item), class: "btn btn-primary"
+      = link_to 'Back', items_path, class: "btn btn-warning"
+.col-md-6
+  .box.box-solid
+    .box-header
+      %i.fa.fa-camera
+      %h3.box-title #{@item.code} Photo
+    .box-body.text-center
+      =image_tag @item.photo.url(:medium)

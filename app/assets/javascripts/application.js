@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// Exclude JS
+//= stub datatables/dataTables.bootstrap.js
+//= stub datatables/jquery.dataTables.js

@@ -1,0 +1,10 @@
+.modal.fade{:id => "item-photo-#{item.id}", "aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+        %h4.modal-title
+          %i.fa.fa-envelope-o
+          = item.code
+      .modal-body.text-center
+        =image_tag item.photo.url

@@ -1,0 +1,40 @@
+.modal.fade{id: "compose-email-#{customer.id}", "aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} &times;
+        %h4.modal-title
+          %i.fa.fa-envelope-o
+          Compose New Message
+      %form{:action => "#", :method => "post"}
+        .modal-body
+          .form-group
+            .input-group
+              %span.input-group-addon TO:
+              %input.form-control{:name => "email_to", :placeholder => "Email TO", :type => "email"}
+          .form-group
+            .input-group
+              %span.input-group-addon CC:
+              %input.form-control{:name => "email_to", :placeholder => "Email CC", :type => "email"}
+          .form-group
+            .input-group
+              %span.input-group-addon BCC:
+              %input.form-control{:name => "email_to", :placeholder => "Email BCC", :type => "email"}
+          .form-group
+            %textarea#email_message.form-control{:name => "message", :placeholder => "Message", :style => "height: 120px;"}
+          .form-group
+            .btn.btn-success.btn-file
+              %i.fa.fa-paperclip
+              Attachment
+              %input{:name => "attachment", :type => "file"}/
+            %p.help-block Max. 32MB
+        .modal-footer.clearfix
+          %button.btn.btn-danger{"data-dismiss" => "modal", :type => "button"}
+            %i.fa.fa-times
+            Discard
+          %button.btn.btn-primary.pull-left{:type => "submit"}
+            %i.fa.fa-envelope
+            Send Message
+    / /.modal-content
+  / /.modal-dialog
+/ /.modal

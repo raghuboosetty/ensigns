@@ -12,7 +12,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :status
       t.string :payment_status
       t.text :description
-      t.decimal :paid_amout
+      t.decimal :paid_amount
       t.attachment :photo
 
       t.timestamps

@@ -1,25 +1,53 @@
-%h1 Listing customers
+.col-xs-12
+  .box
+    .box-header
+      %h3.box-title Listing customers
+    /.box-header
+    .box-body.table-responsive
+      %table#items.table.table-bordered.table-striped
+        %thead
+          %tr
+            %th Name
+            %th Email
+            %th Phone
+            %th Actions
+        %tbody
+          - @customers.each do |customer|
+            = render "compose_email", customer: customer
+            %td= link_to customer.name, customer
+            %td= link_to customer.email, "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal"
+            %td= customer.phone
+            %td
+              = link_to customer do
+                %i.fa.fa-desktop
+              &nbsp;
+              = link_to "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal" do
+                %i.fa.fa-envelope
+              &nbsp;
+              = link_to edit_customer_path(customer) do
+                %i.fa.fa-pencil-square-o
+              &nbsp;
+              = link_to customer, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+                %i.fa.fa-trash-o
+          %tfoot
+            %tr
+              %th Name
+              %th Email
+              %th Phone
+              %th Actions
+  = link_to 'New Customer', new_customer_path, class: "btn btn-primary"
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th Email
-      %th Phone
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @customers.each do |customer|
-      %tr
-        %td= customer.name
-        %td= customer.email
-        %td= customer.phone
-        %td= link_to 'Show', customer
-        %td= link_to 'Edit', edit_customer_path(customer)
-        %td= link_to 'Destroy', customer, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Customer', new_customer_path
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"}
+%script{:src => "/assets/datatables/jquery.dataTables.js", :type => "text/javascript"}
+%script{:src => "/assets/datatables/dataTables.bootstrap.js", :type => "text/javascript"}
+:javascript
+  $(function() {
+      $('#items').dataTable({
+          "bPaginate": true,
+          "bLengthChange": true,
+          "bFilter": true,
+          "bSort": true,
+          "bInfo": true,
+          "bAutoWidth": false
+      });
+  });

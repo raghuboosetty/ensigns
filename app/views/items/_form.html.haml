@@ -1,49 +1,60 @@
-= form_for @item do |f|
-  - if @item.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
-      %ul
-        - @item.errors.full_messages.each do |msg|
-          %li= msg
+.col-md-6
+  .box.box-primary
+    .box-header
+      %h3.box-title #{action_name.capitalize} #{controller_name.singularize.capitalize}
+    / /.box-header
+    .box-body
+      = form_for @item, :role => "form" do |f|
+        - if @item.errors.any?
+          #error_explanation
+            %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
+            %ul
+              - @item.errors.full_messages.each do |msg|
+                %li= msg
 
-  .field
-    = f.label :customer
-    = f.text_field :customer
-  .field
-    = f.label :token
-    = f.text_field :token
-  .field
-    = f.label :size
-    = f.text_field :size
-  .field
-    = f.label :code
-    = f.text_field :code
-  .field
-    = f.label :wholesale_price
-    = f.text_field :wholesale_price
-  .field
-    = f.label :retail_price
-    = f.text_field :retail_price
-  .field
-    = f.label :selling_price
-    = f.text_field :selling_price
-  .field
-    = f.label :discount
-    = f.text_field :discount
-  .field
-    = f.label :status
-    = f.text_field :status
-  .field
-    = f.label :payment_status
-    = f.text_field :payment_status
-  .field
-    = f.label :description
-    = f.text_area :description
-  .field
-    = f.label :paid_amout
-    = f.text_field :paid_amout
-  .field
-    = f.label :photo
-    = f.file_field :photo
-  .actions
-    = f.submit 'Save'
+        / text input
+        .form-group
+          %label Customer
+          = f.select :customer, Customer.select_options, {prompt: 'Select'}, {class: "form-control"}
+        .form-group
+          %label Size
+          = f.select :size, Item.size_options, {prompt: 'Select'}, {class: "form-control"}
+        .form-group
+          %label Code
+          = f.text_field :code, class: "form-control"
+        .form-group
+          %label Whole Sale Price (Price at which you bought)
+          .input-group
+            %span.input-group-addon ₹
+            = f.text_field :wholesale_price, class: "form-control"
+        .form-group
+          %label Retail Price (Price at which you have to sell)
+          .input-group
+            %span.input-group-addon ₹
+            = f.text_field :retail_price, class: "form-control"
+        .form-group
+          %label Selling Price (Price at which you sold)
+          .input-group
+            %span.input-group-addon ₹
+            = f.text_field :selling_price, class: "form-control"
+        .form-group
+          %label Status
+          = f.select :status, Item.status_options, {}, {class: "form-control"}
+        .form-group
+          %label Paid Amount (How much amout did the customer pay)
+          .input-group
+            %span.input-group-addon ₹
+            = f.text_field :paid_amount, class: "form-control"
+        .form-group
+          %label Payment Status
+          = f.select :payment_status, Item.payment_status_options, {prompt: 'Select'}, {class: "form-control"}
+        .form-group
+          %label Description
+          = f.text_area :description, class: "form-control"
+        .form-group
+          %label{:for => "exampleInputFile"} Photo file input
+          = f.file_field :photo, id: "exampleInputFile"
+          %p.help-block Upload item photo
+
+          = f.submit 'Save', class: "btn btn-primary"
+          = link_to 'Back', items_path, class: "btn btn-warning"

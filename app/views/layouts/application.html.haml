@@ -61,6 +61,11 @@
                 %i.fa.fa-dashboard
                 Home
             %li.active Dashboard
-        =# render "shared/dashboard"
+        / Main content
+        %section.content
+          / Small boxes (Stat box)
+          .row            
+            =# render "shared/dashboard"
+            = yield
       / /.right-side
     / ./wrapper

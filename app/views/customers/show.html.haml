@@ -1,15 +1,17 @@
-%p#notice= notice
-
-%p
-  %b Name:
-  = @customer.name
-%p
-  %b Email:
-  = @customer.email
-%p
-  %b Phone:
-  = @customer.phone
-
-= link_to 'Edit', edit_customer_path(@customer)
-\|
-= link_to 'Back', customers_path
+.col-md-6
+  .box.box-solid
+    .box-header
+      %i.fa.fa-desktop
+      %h3.box-title= @customer.name
+    / /.box-header
+    .box-body
+      %p#notice= notice
+      %dl.dl-horizontal
+        %dt Name
+        %dd= @customer.name
+        %dt Email
+        %dd= @customer.email
+        %dt Phone
+        %dd= @customer.phone
+      = link_to 'Edit', edit_customer_path(@customer), class: "btn btn-primary"
+      = link_to 'Back', customers_path, class: "btn btn-warning"
