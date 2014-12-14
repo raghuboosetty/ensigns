@@ -6,6 +6,17 @@ class Item < ActiveRecord::Base
 
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>", mini_thumb: "50x50>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+  
+  validates :token, :code, :wholesale_price, :status, presence: true  
+  validates :token, :code, uniqueness: true
+  validates :wholesale_price, :retail_price, :selling_price, :paid_amount, :discount, numericality: true
+  
+  before_validation :generate_token
+  
+  private
+  def generate_token
+    self.token = Digest::MD5.hexdigest(self.code) if self.code.present?
+  end
 
   class << self
     def status_options
@@ -31,14 +42,14 @@ end
 #  token              :string(255)
 #  size               :string(255)
 #  code               :string(255)
-#  wholesale_price    :integer
-#  retail_price       :integer
-#  selling_price      :integer
-#  discount           :integer
-#  status             :string(255)
+#  wholesale_price    :decimal(6, 2)
+#  retail_price       :decimal(6, 2)
+#  selling_price      :decimal(6, 2)
+#  discount           :decimal(6, 3)
+#  status             :string(255)      default("in_stock")
 #  payment_status     :string(255)
 #  description        :text
-#  paid_amount        :integer
+#  paid_amount        :decimal(6, 2)
 #  photo_file_name    :string(255)
 #  photo_content_type :string(255)
 #  photo_file_size    :integer

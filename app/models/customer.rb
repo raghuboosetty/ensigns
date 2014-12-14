@@ -1,12 +1,18 @@
 class Customer < ActiveRecord::Base
   has_many :items
   
+  validates :name, :email, :phone, presence: true  
+  validates :email, uniqueness: true, email: true
+  validates :phone, numericality: { only_integer: true }
+  
   class << self
     def select_options
       self.all.map{ |c| [c.name, c.id] }
     end
-  end
+  end  
 end
+
+
 
 # == Schema Information
 #

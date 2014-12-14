@@ -47,14 +47,14 @@ ActiveRecord::Schema.define(version: 20141213111516) do
     t.string   "token"
     t.string   "size"
     t.string   "code"
-    t.decimal  "wholesale_price",    precision: 10, scale: 0
-    t.decimal  "retail_price",       precision: 10, scale: 0
-    t.decimal  "selling_price",      precision: 10, scale: 0
-    t.decimal  "discount",           precision: 10, scale: 0
-    t.string   "status"
+    t.decimal  "wholesale_price",    precision: 6, scale: 2
+    t.decimal  "retail_price",       precision: 6, scale: 2
+    t.decimal  "selling_price",      precision: 6, scale: 2
+    t.decimal  "discount",           precision: 6, scale: 3
+    t.string   "status",                                     default: "in_stock"
     t.string   "payment_status"
     t.text     "description"
-    t.decimal  "paid_amount",        precision: 10, scale: 0
+    t.decimal  "paid_amount",        precision: 6, scale: 2
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"

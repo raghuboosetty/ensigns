@@ -1,17 +1,11 @@
 .col-md-6
-  .box.box-primary
+  .box{class: "#{@item.errors.any? ? 'box-danger' : 'box-primary'}"}
     .box-header
       %h3.box-title #{action_name.capitalize} #{controller_name.singularize.capitalize}
     / /.box-header
     .box-body
       = form_for @item, :role => "form" do |f|
-        - if @item.errors.any?
-          #error_explanation
-            %h2= "#{pluralize(@item.errors.count, "error")} prohibited this item from being saved:"
-            %ul
-              - @item.errors.full_messages.each do |msg|
-                %li= msg
-
+        = render "shared/form_errors", obj: @item
         / text input
         .form-group
           %label Customer

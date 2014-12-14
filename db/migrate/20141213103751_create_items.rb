@@ -5,14 +5,14 @@ class CreateItems < ActiveRecord::Migration
       t.string :token, unique: true
       t.string :size
       t.string :code
-      t.decimal :wholesale_price
-      t.decimal :retail_price
-      t.decimal :selling_price
-      t.decimal :discount
-      t.string :status
+      t.decimal :wholesale_price, precision: 6, scale: 2
+      t.decimal :retail_price, precision: 6, scale: 2
+      t.decimal :selling_price, precision: 6, scale: 2
+      t.decimal :discount, precision: 6, scale: 3
+      t.string :status, default: "in_stock"
       t.string :payment_status
       t.text :description
-      t.decimal :paid_amount
+      t.decimal :paid_amount, precision: 6, scale: 2
       t.attachment :photo
 
       t.timestamps
