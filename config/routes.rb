@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :items do
     get :upload, on: :collection
   end
-  resources :customers
+  resources :customers do 
+    get :stats, on: :member
+  end
   get 'dashboard/index'
   
   root to: 'dashboard#index'

@@ -26,14 +26,14 @@
 
               %td= link_to item.code, item_path(item)
               %td= Item::SIZES[item.size.to_sym]
-              %td= "₹ #{item.wholesale_price}"
-              %td= "₹ #{item.retail_price}"
-              %td= "₹ #{item.selling_price}"
+              %td= number_to_currency item.wholesale_price, unit: "₹"
+              %td= number_to_currency item.retail_price, unit: "₹"
+              %td= number_to_currency item.selling_price, unit: "₹"
               %td= status_label item.status, Item::STATUSES[item.status.to_sym]
               %td
                 - if item.payment_status.present?
                   = status_label item.payment_status, Item::PAYMENT_STATUSES[item.payment_status.to_sym]
-              %td= "₹ #{item.paid_amount || 0}"
+              %td= number_to_currency item.paid_amount, unit: "₹"
               %td
                 - if item.customer.present?
                   = link_to item.customer.name, item.customer

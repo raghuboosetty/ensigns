@@ -48,7 +48,7 @@ group :development do
   gem 'capistrano-rails', require: false
   gem 'capistrano-bundler', '~> 1.1', require: false
   gem 'capistrano-rvm',   '~> 0.1', require: false
-  
+
   # Use debugger
   # gem 'debugger'
 

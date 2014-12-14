@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-  before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer, only: [:show, :edit, :update, :destroy, :stats]
 
   respond_to :html
 
@@ -29,6 +29,9 @@ class CustomersController < ApplicationController
   def update
     @customer.update(customer_params)
     redirect_to @customer, notice: "Successfully Updated!"
+  end
+  
+  def stats
   end
 
   def destroy

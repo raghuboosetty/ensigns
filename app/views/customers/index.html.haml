@@ -8,23 +8,37 @@
         %thead
           %tr
             %th Name
+            %th Pending Payment
+            %th Percent            
             %th Email
             %th Phone
             %th Actions
         %tbody
           - @customers.each do |customer|
             = render "compose_email", customer: customer
+            - pending_amount = customer.pending_amount
             %tr
               %td= link_to customer.name, customer
+              %td
+                = pending_amount
+                - if pending_amount > 0
+                  = link_to stats_customer_path(customer) do
+                    %span.fa.fa-external-link
+              %td
+                - percent = customer.pending_percent 
+                = progress_label percent, number_to_percentage(percent, precision: 2)                    
               %td= link_to customer.email, "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal"
-              %td= customer.phone
+              %td= number_to_phone customer.phone
               %td
                 = link_to customer do
                   %i.fa.fa-desktop
                 &nbsp;
                 = link_to "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal" do
                   %i.fa.fa-envelope
-                &nbsp;
+                &nbsp;                  
+                = link_to stats_customer_path(customer) do
+                  %span.fa.fa-external-link                  
+                &nbsp;                
                 = link_to edit_customer_path(customer) do
                   %i.fa.fa-pencil-square-o
                 &nbsp;
@@ -33,6 +47,7 @@
           %tfoot
             %tr
               %th Name
+              %th Pending Payment              
               %th Email
               %th Phone
               %th Actions

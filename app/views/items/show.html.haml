@@ -14,13 +14,13 @@
         %dt Code
         %dd= @item.code
         %dt Wholesale price:
-        %dd= @item.wholesale_price
+        %dd= number_to_currency @item.wholesale_price, unit: "₹"
         %dt Retail price:
-        %dd= @item.retail_price
+        %dd= number_to_currency @item.retail_price, unit: "₹"
         %dt Selling price:
-        %dd= @item.selling_price
+        %dd= number_to_currency @item.selling_price, unit: "₹"
         %dt Discount:
-        %dd= @item.discount
+        %dd= number_to_percentage @item.discount, precision: 2
         %dt Status:
         %dd= status_label @item.status, Item::STATUSES[@item.status.to_sym]
         %dt Payment status:
@@ -32,7 +32,7 @@
           - if @item.customer
             = link_to @item.customer.try(:name), customer_path(@item.customer)
         %dt Paid amout:
-        %dd= @item.paid_amount
+        %dd= number_to_currency @item.paid_amount, unit: "₹"
         %dt Description:
         %dd= @item.description
       = link_to 'Edit', edit_item_path(@item), class: "btn btn-primary"

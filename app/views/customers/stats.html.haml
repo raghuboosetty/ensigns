@@ -1,0 +1,41 @@
+.col-xs-12
+  .box.box-info
+    .box-header
+      %h3.box-title #{@customer.name.capitalize} Purchase History
+    / /.box-header
+    .box-body.no-padding.table-responsive
+      %table.table.table-striped
+        %tr
+          %th{:style => "width: 10px"} #
+          %th Photo
+          %th Item
+          %th{:style => "min-width: 200px"} Progress
+          %th Percent
+          %th Last Paid          
+          %th Pending
+          %th Selling  Price          
+        - @customer.items.each_with_index do |item, index|
+          = render "items/photo", item: item
+          - percentage = item.paid_percent
+          - percentage_str = number_to_percentage percentage, precision: 2
+          %tr
+            %td #{index + 1}.
+            %td= link_to (image_tag item.photo.url(:mini_thumb)), "#photo", "data-target" => "#item-photo-#{item.id}", "data-toggle" => "modal"
+            %td= item.code
+            %td
+              .progress.xs.progress-striped.active
+                .progress-bar{style: "width: #{percentage_str}", class: "progress-bar #{progress_class(percentage)}"}
+            %td= progress_label percentage, percentage_str
+            %td= item.updated_at.to_s(:report_long)
+            %td= number_to_currency item.pending_amount, unit: "₹"
+            %td= number_to_currency item.selling_price, unit: "₹"
+        %tr
+          %th
+          %th Total
+          %th= @customer.items.count
+          %th
+          %th
+          %th          
+          %th= number_to_currency @customer.pending_amount, unit: "₹"
+          %th= number_to_currency @customer.items.sum(:selling_price), unit: "₹"
+  = link_to 'Back', customers_path, class: "btn btn-warning"

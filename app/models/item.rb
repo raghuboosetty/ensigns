@@ -13,11 +13,16 @@ class Item < ActiveRecord::Base
   
   before_validation :generate_token
   
-  private
-  def generate_token
-    self.token = Digest::MD5.hexdigest(self.code) if self.code.present?
+  def pending_amount
+    amount = (selling_price - paid_amount)
+    (amount >= 0 ? amount : 0).to_f
   end
-
+  
+  def paid_percent
+    percent = ((paid_amount.to_f/selling_price)*100)
+    percent > 100 ? 100 : percent
+  end
+  
   class << self
     def status_options
       STATUSES.map{ |k,v| [v, k] }
@@ -30,6 +35,11 @@ class Item < ActiveRecord::Base
     def payment_status_options
       PAYMENT_STATUSES.map{ |k,v| [v, k] }
     end
+  end  
+  
+  private
+  def generate_token
+    self.token = Digest::MD5.hexdigest(self.code) if self.code.present?
   end
 end
 
