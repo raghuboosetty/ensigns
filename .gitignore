@@ -12,5 +12,41 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
+.rvmrc
 /log/*.log
 /tmp
+
+# generic files to ignore.
+*~
+*.DS_Store
+
+.rake_tasks
+**database.yml
+public/system/*
+public/uploads/*
+public/assets/*
+public/psd
+public/img/psd/*
+public/system/cache/*
+backup/*
+backups/*
+notes/*
+.sass-cache/*
+.sass-cache
+**/*.db
+\#*
+**/*.db
+.#*
+db/*.sql
+db/*.sqlite3
+db/schema.rb
+sql_backup/*
+vendor/rails
+vendor/extensions
+public/.htaccess
+public/api/*
+.rbenv-gemsets
+.rbenv-version
+
+# Ignore database.yml
+/config/database.yml

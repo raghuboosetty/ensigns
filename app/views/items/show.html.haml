@@ -10,7 +10,7 @@
         %dt Token
         %dd= @item.token
         %dt Size
-        %dd= @item.size
+        %dd= Item::SIZES[@item.size.to_sym]
         %dt Code
         %dd= @item.code
         %dt Wholesale price:
@@ -22,9 +22,9 @@
         %dt Discount:
         %dd= @item.discount
         %dt Status:
-        %dd= @item.status
+        %dd= Item::STATUSES[@item.status.to_sym]
         %dt Payment status:
-        %dd= @item.payment_status
+        %dd= Item::PAYMENT_STATUSES[@item.payment_status.to_sym] if @item.payment_status.present?
         %dt Customer:
         %dd
           - if @item.customer

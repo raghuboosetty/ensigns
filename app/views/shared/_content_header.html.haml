@@ -1,0 +1,11 @@
+- bradcrumb_name = controller_name.capitalize
+%section.content-header
+  %h1
+    #{bradcrumb_name}
+    %small Control panel
+  %ol.breadcrumb
+    %li
+      = link_to root_path do
+        %i.fa.fa-dashboard
+        Home
+    %li.active= bradcrumb_name

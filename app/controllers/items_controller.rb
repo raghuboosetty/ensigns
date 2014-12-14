@@ -1,11 +1,21 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_admin!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
   def index
-    @items = Item.all
+    if params[:q]
+      q = params[:q]
+      @items = Item.where("code LIKE ? OR 
+                           wholesale_price LIKE ? OR
+                           selling_price LIKE ? OR
+                           retail_price LIKE ? OR
+                           paid_amount LIKE ? OR
+                           token LIKE ?", "%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%", "%#{q}%")
+    else
+      @items = Item.all
+    end
+
     respond_with(@items)
   end
 
@@ -43,6 +53,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:customer_id, :token, :size, :code, :wholesale_price, :retail_price, :selling_price, :discount, :status, :payment_status, :description, :paid_amount, :photo)
+      params.require(:item).permit(:customer_id, :q, :token, :size, :code, :wholesale_price, :retail_price, :selling_price, :discount, :status, :payment_status, :description, :paid_amount, :photo)
     end
 end

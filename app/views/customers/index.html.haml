@@ -14,21 +14,22 @@
         %tbody
           - @customers.each do |customer|
             = render "compose_email", customer: customer
-            %td= link_to customer.name, customer
-            %td= link_to customer.email, "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal"
-            %td= customer.phone
-            %td
-              = link_to customer do
-                %i.fa.fa-desktop
-              &nbsp;
-              = link_to "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal" do
-                %i.fa.fa-envelope
-              &nbsp;
-              = link_to edit_customer_path(customer) do
-                %i.fa.fa-pencil-square-o
-              &nbsp;
-              = link_to customer, :method => :delete, :data => { :confirm => 'Are you sure?' } do
-                %i.fa.fa-trash-o
+            %tr
+              %td= link_to customer.name, customer
+              %td= link_to customer.email, "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal"
+              %td= customer.phone
+              %td
+                = link_to customer do
+                  %i.fa.fa-desktop
+                &nbsp;
+                = link_to "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal" do
+                  %i.fa.fa-envelope
+                &nbsp;
+                = link_to edit_customer_path(customer) do
+                  %i.fa.fa-pencil-square-o
+                &nbsp;
+                = link_to customer, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+                  %i.fa.fa-trash-o
           %tfoot
             %tr
               %th Name

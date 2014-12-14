@@ -1,9 +1,0 @@
-default: &default
-  adapter: mysql2
-  encoding: utf8
-  username: root
-  password: nimbu
-
-development:
-  <<: *default
-  database: ensigns_development

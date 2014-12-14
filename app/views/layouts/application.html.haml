@@ -38,29 +38,12 @@
                 Hello, #{current_admin.name}
               %a{:href => "#"}
                 = Date.today.to_s(:report_long)
-          / search form
-          %form.sidebar-form{:action => "#", :method => "get"}
-            .input-group
-              %input.form-control{:name => "q", :placeholder => "Search...", :type => "text"}/
-              %span.input-group-btn
-                %button#search-btn.btn.btn-flat{:name => "seach", :type => "submit"}
-                  %i.fa.fa-search
-          / /.search form
+          = render "shared/search"
           = render "shared/side_menu"
         / /.sidebar
       / Right side column. Contains the navbar and content of the page
       %aside.right-side
-        / Content Header (Page header)
-        %section.content-header
-          %h1
-            Dashboard
-            %small Control panel
-          %ol.breadcrumb
-            %li
-              %a{:href => "#"}
-                %i.fa.fa-dashboard
-                Home
-            %li.active Dashboard
+        = render "shared/content_header"
         / Main content
         %section.content
           / Small boxes (Stat box)

@@ -30,9 +30,11 @@
               %td= "₹ #{item.retail_price}"
               %td= "₹ #{item.selling_price}"
               %td= Item::STATUSES[item.status.to_sym]
-              %td= item.payment_status
+              %td= Item::PAYMENT_STATUSES[item.payment_status.to_sym] if item.payment_status.present?
               %td= "₹ #{item.paid_amount || 0}"
-              %td= item.customer
+              %td
+                - if item.customer.present?
+                  = link_to item.customer.name, item.customer
               %td
                 = link_to item do
                   %span.fa.fa-desktop

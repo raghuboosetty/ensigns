@@ -1,0 +1,7 @@
+/ search form
+= form_tag items_path, :method => 'get', class: "sidebar-form" do
+  .input-group
+    = text_field_tag :q, params[:q], :placeholder => "Search Item...", class: 'form-control'
+    %span.input-group-btn
+      %button#search-btn.btn.btn-flat{:name => nil, :type => "submit"}
+        %i.fa.fa-search

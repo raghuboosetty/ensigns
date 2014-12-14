@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20141213111516) do
   create_table "customers", force: true do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "phone"
+    t.decimal  "phone",      precision: 10, scale: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
