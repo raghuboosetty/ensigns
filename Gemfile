@@ -36,8 +36,8 @@ gem 'devise'
 # attachments
 gem "paperclip", "~> 4.2"
 
-# admin
-gem "rails_admin"
+# annotate activeRecord models
+gem "annotate"
 
 group :development do
   # Use Capistrano for deployment

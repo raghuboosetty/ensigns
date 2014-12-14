@@ -7,3 +7,15 @@ class Customer < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: customers
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  email      :string(255)
+#  phone      :integer
+#  created_at :datetime
+#  updated_at :datetime
+#

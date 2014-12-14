@@ -21,3 +21,32 @@ class Item < ActiveRecord::Base
     end
   end
 end
+
+# == Schema Information
+#
+# Table name: items
+#
+#  id                 :integer          not null, primary key
+#  customer_id        :integer
+#  token              :string(255)
+#  size               :string(255)
+#  code               :string(255)
+#  wholesale_price    :integer
+#  retail_price       :integer
+#  selling_price      :integer
+#  discount           :integer
+#  status             :string(255)
+#  payment_status     :string(255)
+#  description        :text
+#  paid_amount        :integer
+#  photo_file_name    :string(255)
+#  photo_content_type :string(255)
+#  photo_file_size    :integer
+#  photo_updated_at   :datetime
+#  created_at         :datetime
+#  updated_at         :datetime
+#
+# Indexes
+#
+#  index_items_on_customer_id  (customer_id)
+#
