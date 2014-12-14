@@ -29,8 +29,10 @@
               %td= "₹ #{item.wholesale_price}"
               %td= "₹ #{item.retail_price}"
               %td= "₹ #{item.selling_price}"
-              %td= Item::STATUSES[item.status.to_sym]
-              %td= Item::PAYMENT_STATUSES[item.payment_status.to_sym] if item.payment_status.present?
+              %td= status_label item.status, Item::STATUSES[item.status.to_sym]
+              %td
+                - if item.payment_status.present?
+                  = status_label item.payment_status, Item::PAYMENT_STATUSES[item.payment_status.to_sym]
               %td= "₹ #{item.paid_amount || 0}"
               %td
                 - if item.customer.present?
@@ -56,6 +58,7 @@
               %th Customer
               %th Actions
   = link_to 'New Item', new_item_path, class: "btn btn-primary"
+  = link_to 'Upload Items', upload_items_path, class: "btn btn-success"
 
 %script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"}
 %script{:src => "/assets/datatables/jquery.dataTables.js", :type => "text/javascript"}

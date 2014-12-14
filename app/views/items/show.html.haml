@@ -22,9 +22,11 @@
         %dt Discount:
         %dd= @item.discount
         %dt Status:
-        %dd= Item::STATUSES[@item.status.to_sym]
+        %dd= status_label @item.status, Item::STATUSES[@item.status.to_sym]
         %dt Payment status:
-        %dd= Item::PAYMENT_STATUSES[@item.payment_status.to_sym] if @item.payment_status.present?
+        %dd
+          - if @item.payment_status.present?
+            = status_label @item.payment_status, Item::PAYMENT_STATUSES[@item.payment_status.to_sym]
         %dt Customer:
         %dd
           - if @item.customer

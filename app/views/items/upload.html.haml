@@ -1,0 +1,13 @@
+.col-md-12
+  .box{class: "box-primary"}
+    .box-header
+      %h3.box-title #{action_name.capitalize} #{controller_name.singularize.capitalize}
+    / /.box-header
+    .box-body
+      = form_for Item.new, :html => { :multipart => true, :id => "fileupload"  } do |f|
+        .form-group
+          %label{:for => "exampleInputFile"} Photo file input
+          = f.file_field :uploads, multiple: true, id: "exampleInputFile"
+          %p.help-block Upload item photo
+          = f.submit 'Start Upload', class: "btn btn-primary"
+          = link_to 'Cancel Upload', items_path, class: "btn btn-warning"

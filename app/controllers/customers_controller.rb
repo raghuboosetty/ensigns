@@ -23,17 +23,17 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     @customer.save
-    respond_with(@customer)
+    redirect_to @customer, notice: "Successfully Created!"
   end
 
   def update
     @customer.update(customer_params)
-    respond_with(@customer)
+    redirect_to @customer, notice: "Successfully Updated!"
   end
 
   def destroy
     @customer.destroy
-    respond_with(@customer)
+    redirect_to customers_path, notice: "Successfully Deleted!"
   end
 
   private

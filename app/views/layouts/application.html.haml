@@ -9,12 +9,9 @@
     %script{src: "https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"}
     %script{src: "https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"}
   %body.skin-blue
-    / header logo: style can be found in header.less
     %header.header
       = link_to root_path, class: "logo" do
-        / Add the class icon to your logo image or logo icon to add the margining
         Admin Ensigns
-      / Header Navbar: style can be found in header.less
       %nav.navbar.navbar-static-top{:role => "navigation"}
         / Sidebar toggle button
         %a.navbar-btn.sidebar-toggle{"data-toggle" => "offcanvas", :href => "#", :role => "button"}
@@ -25,30 +22,22 @@
         .navbar-right
           = render "shared/top_menu"
     .wrapper.row-offcanvas.row-offcanvas-left
-      / Left side column. contains the logo and sidebar
       %aside.left-side.sidebar-offcanvas
-        / sidebar: style can be found in sidebar.less
         %section.sidebar
-          / Sidebar user panel
           .user-panel
             .pull-left.image
               %img.img-circle{:alt => "Admin Image", :src => admin_image_path}
             .pull-left.info
-              %p 
+              %p
                 Hello, #{current_admin.name}
               %a{:href => "#"}
                 = Date.today.to_s(:report_long)
           = render "shared/search"
           = render "shared/side_menu"
-        / /.sidebar
-      / Right side column. Contains the navbar and content of the page
       %aside.right-side
         = render "shared/content_header"
-        / Main content
         %section.content
-          / Small boxes (Stat box)
-          .row            
+          .row
+            = render "shared/alerts"
             =# render "shared/dashboard"
             = yield
-      / /.right-side
-    / ./wrapper

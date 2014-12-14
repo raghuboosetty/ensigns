@@ -39,6 +39,9 @@ gem "paperclip", "~> 4.2"
 # annotate activeRecord models
 gem "annotate"
 
+# multiple file upload
+gem 'jquery-fileupload-rails'
+
 group :development do
   # Use Capistrano for deployment
   gem 'capistrano', '~> 3.2.0', require: false
