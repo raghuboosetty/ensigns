@@ -1,7 +1,7 @@
-admin = Admin.where(email: 'admin@ensigns.com').exists?(conditions = :none)
+admin = Admin.where(email: 'admin@ensigns.co.in').exists?(conditions = :none)
 if !admin
   puts "Seeding Admin..."
-  Admin.create! email: 'admin@ensigns.com',
+  Admin.create! email: 'admin@ensigns.co.in',
                 password: 'admin1234',
                 password_confirmation: 'admin1234',
                 name: "Sneha",
