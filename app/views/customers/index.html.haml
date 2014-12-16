@@ -9,7 +9,7 @@
           %tr
             %th Name
             %th Pending Payment
-            %th Percent            
+            %th Percent
             %th Email
             %th Phone
             %th Actions
@@ -25,8 +25,8 @@
                   = link_to stats_customer_path(customer) do
                     %span.fa.fa-external-link
               %td
-                - percent = customer.pending_percent 
-                = progress_label percent, number_to_percentage(percent, precision: 2)                    
+                - percent = customer.pending_percent
+                = progress_label percent, number_to_percentage(percent, precision: 2)
               %td= link_to customer.email, "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal"
               %td= number_to_phone customer.phone
               %td
@@ -35,10 +35,10 @@
                 &nbsp;
                 = link_to "#email", "data-target" => "#compose-email-#{customer.id}", "data-toggle" => "modal" do
                   %i.fa.fa-envelope
-                &nbsp;                  
+                &nbsp;
                 = link_to stats_customer_path(customer) do
-                  %span.fa.fa-external-link                  
-                &nbsp;                
+                  %span.fa.fa-external-link
+                &nbsp;
                 = link_to edit_customer_path(customer) do
                   %i.fa.fa-pencil-square-o
                 &nbsp;
@@ -47,7 +47,8 @@
           %tfoot
             %tr
               %th Name
-              %th Pending Payment              
+              %th Pending Payment
+              %th Percent
               %th Email
               %th Phone
               %th Actions
