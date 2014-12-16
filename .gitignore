@@ -49,6 +49,7 @@ public/api/*
 .rbenv-version
 .ruby-gemset
 .ruby-version
+.credentials
 
 # Ignore *.yml
 /config/database.yml
