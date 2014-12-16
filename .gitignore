@@ -47,6 +47,8 @@ public/.htaccess
 public/api/*
 .rbenv-gemsets
 .rbenv-version
+.ruby-gemset
+.ruby-version
 
 # Ignore database.yml
 /config/database.yml
