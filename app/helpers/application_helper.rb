@@ -51,4 +51,9 @@ module ApplicationHelper
     end
     content_tag(:span, title || percentage, class: "badge #{css_class}")
   end
+  
+  # avoid unit in every call
+  def number_to_currency(amount)
+    super(amount, unit: "₹")
+  end
 end

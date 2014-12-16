@@ -1,7 +1,38 @@
-.col-xs-12
-  .box
-  .box-header
-    %h3.box-title TODO: Add items
-  /.box-header
-  .box-body.table-responsive
-    %p Find me in app/views/dashboard/index.html.haml
+.col-md-6
+  .box.box-solid
+    .box-header
+      %i.fa.fa-desktop
+      %h3.box-title Cost Stats
+    .box-body
+      %dl.dl-horizontal
+        %dt Total Cost:
+        %dd= number_to_currency Item.sum(:wholesale_price)
+        %dt 
+          Selling Price
+          %br
+          (money earned):
+        %dd= number_to_currency Item.where(payment_status: 'paid').sum(:selling_price)
+        %dt 
+          Pending Amount
+          %br
+          (full & partial):
+        %dd= number_to_currency Item.where("status != 'paid'").sum(:selling_price)
+
+.col-md-6
+  .box.box-solid
+    .box-header
+      %i.fa.fa-desktop
+      %h3.box-title Item Stats
+    .box-body
+      %dl.dl-horizontal
+        %dt Total Items:
+        %dd= Item.count
+        %dt Sold:
+        %dd= Item.where(status: 'out_stock').count
+        %dt In Stock/Pending:
+        %dd= Item.where(status: 'in_stock').count
+        %dt Reserved/Put on hold:
+        %dd= Item.where(status: 'reserved').count
+        %dt Damaged:
+        %dd= Item.where(status: 'damaged').count
+                

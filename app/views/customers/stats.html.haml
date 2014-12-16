@@ -27,8 +27,8 @@
                 .progress-bar{style: "width: #{percentage_str}", class: "progress-bar #{progress_class(percentage)}"}
             %td= progress_label percentage, percentage_str
             %td= item.updated_at.to_s(:report_long)
-            %td= number_to_currency item.pending_amount, unit: "₹"
-            %td= number_to_currency item.selling_price, unit: "₹"
+            %td= number_to_currency item.pending_amount
+            %td= number_to_currency item.selling_price
         %tr
           %th
           %th Total
@@ -36,6 +36,6 @@
           %th
           %th
           %th          
-          %th= number_to_currency @customer.pending_amount, unit: "₹"
-          %th= number_to_currency @customer.items.sum(:selling_price), unit: "₹"
+          %th= number_to_currency @customer.pending_amount
+          %th= number_to_currency @customer.items.sum(:selling_price)
   = link_to 'Back', customers_path, class: "btn btn-warning"

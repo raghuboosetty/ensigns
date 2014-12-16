@@ -14,11 +14,11 @@
         %dt Code
         %dd= @item.code
         %dt Wholesale price:
-        %dd= number_to_currency @item.wholesale_price, unit: "₹"
+        %dd= number_to_currency @item.wholesale_price
         %dt Retail price:
-        %dd= number_to_currency @item.retail_price, unit: "₹"
+        %dd= number_to_currency @item.retail_price
         %dt Selling price:
-        %dd= number_to_currency @item.selling_price, unit: "₹"
+        %dd= number_to_currency @item.selling_price
         %dt Discount:
         %dd= number_to_percentage @item.discount, precision: 2
         %dt Status:
@@ -32,7 +32,7 @@
           - if @item.customer
             = link_to @item.customer.try(:name), customer_path(@item.customer)
         %dt Paid amout:
-        %dd= number_to_currency @item.paid_amount, unit: "₹"
+        %dd= number_to_currency @item.paid_amount
         %dt Description:
         %dd= @item.description
       = link_to 'Edit', edit_item_path(@item), class: "btn btn-primary"
