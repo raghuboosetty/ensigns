@@ -1,7 +1,7 @@
 class Admin < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :recoverable, :registerable, and :omniauthable
-  devise :database_authenticatable, :rememberable, :trackable, :validatable
+  # :confirmable, :lockable, :timeoutable, :recoverable and :omniauthable
+  devise :database_authenticatable, :registerable, :rememberable, :trackable, :validatable
 
   GENDERS = {m: "Male", f: "Female", o: "Other"}
 
