@@ -5,7 +5,7 @@ set :application, 'ensigns'
 set :repo_url, 'git@github.com:raghuboosetty/ensigns.git'
 set :branch, "master"
 set :deploy_user, "root"
-set :deploy_to, "/#{fetch(:deploy_user)}/apps/#{fetch(:application)}"
+set :deploy_to, "/home/apps/#{fetch(:application)}"
 set :scm, :git
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

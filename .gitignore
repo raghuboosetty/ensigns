@@ -50,5 +50,6 @@ public/api/*
 .ruby-gemset
 .ruby-version
 
-# Ignore database.yml
+# Ignore *.yml
 /config/database.yml
+/config/secrets.yml
