@@ -52,4 +52,3 @@ public/api/*
 
 # Ignore *.yml
 /config/database.yml
-/config/secrets.yml
