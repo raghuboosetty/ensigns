@@ -13,13 +13,25 @@ class Item < ActiveRecord::Base
   
   before_validation :generate_token
   
+  # items
+  scope :sold, -> { where("payment_status IS NOT NULL") }
+  scope :in_stock, -> { where(status: "in_stock") }
+  scope :reserved, -> { where(status: "reserved") }
+  scope :damaged, -> { where(status: "damaged") }
+  
+  # cost/money
+  scope :cost, -> { sum(:wholesale_price) }
+  scope :earned, -> { sum(:paid_amount) }
+  scope :target, -> { sum(:selling_price) }
+  scope :pending, -> { target - earned }
+  
   def pending_amount
-    amount = (selling_price - paid_amount)
+    amount = (selling_price.to_f - paid_amount.to_f)
     (amount >= 0 ? amount : 0).to_f
   end
   
   def paid_percent
-    percent = ((paid_amount.to_f/selling_price)*100)
+    percent = ((paid_amount.to_f/selling_price.to_f)*100)
     percent > 100 ? 100 : percent
   end
   

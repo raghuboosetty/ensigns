@@ -9,7 +9,7 @@
         / text input
         .form-group
           %label Customer
-          = f.select :customer, Customer.select_options, {prompt: 'Select'}, {class: "form-control"}
+          = f.select :customer_id, Customer.select_options, {prompt: 'Select'}, {class: "form-control"}
         .form-group
           %label Size
           = f.select :size, Item.size_options, {prompt: 'Select'}, {class: "form-control"}

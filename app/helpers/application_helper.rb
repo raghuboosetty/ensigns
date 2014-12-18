@@ -56,4 +56,8 @@ module ApplicationHelper
   def number_to_currency(amount)
     super(amount, unit: "₹")
   end
+  
+  def percent(given, total)
+    (given.to_f / total.to_f) * 100
+  end
 end

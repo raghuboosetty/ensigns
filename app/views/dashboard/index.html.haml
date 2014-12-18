@@ -1,38 +1,45 @@
-.col-md-6
-  .box.box-solid
-    .box-header
-      %i.fa.fa-desktop
-      %h3.box-title Cost Stats
-    .box-body
+.col-xs-6
+  .small-box.bg-aqua
+    .inner
+      %h3= number_to_currency @cost[:earned]
+      %p Cost Stats
       %dl.dl-horizontal
         %dt Total Cost:
-        %dd= number_to_currency Item.sum(:wholesale_price)
-        %dt 
-          Selling Price
-          %br
-          (money earned):
-        %dd= number_to_currency Item.where(payment_status: 'paid').sum(:selling_price)
-        %dt 
-          Pending Amount
-          %br
-          (full & partial):
-        %dd= number_to_currency Item.where("status != 'paid'").sum(:selling_price)
+        %dd= number_to_currency @cost[:total]
+        %dt Total Earned:
+        %dd= number_to_currency @cost[:earned]
+        %dt Total Pending:
+        %dd= number_to_currency @cost[:pending]
+        %dt Total Target:
+        %dd= number_to_currency @cost[:target]
 
-.col-md-6
-  .box.box-solid
-    .box-header
-      %i.fa.fa-desktop
-      %h3.box-title Item Stats
-    .box-body
-      %dl.dl-horizontal
-        %dt Total Items:
-        %dd= Item.count
-        %dt Sold:
-        %dd= Item.where(status: 'out_stock').count
-        %dt In Stock/Pending:
-        %dd= Item.where(status: 'in_stock').count
-        %dt Reserved/Put on hold:
-        %dd= Item.where(status: 'reserved').count
-        %dt Damaged:
-        %dd= Item.where(status: 'damaged').count
-                
+    .icon
+      %i.ion.ion-bag
+    %span.small-box-footer{:href => "#"}
+      %i.fa.fa-info-circle
+      = number_to_percentage(percent(@cost[:earned], @cost[:target]), precision: 2)
+      of money target achieved
+.col-xs-6
+  .small-box.bg-green
+    .inner
+      %h3
+        = @item[:sold]
+      %p
+        Item Stats        
+        %dl.dl-horizontal
+          %dt Sold:
+          %dd= @item[:sold]
+          %dt In Stock:
+          %dd= @item[:in_stock]
+          %dt Reserved:
+          %dd= @item[:reserved]
+          %dt Damaged:
+          %dd= @item[:damaged]
+          %dt Total Items:
+          %dd= @item[:total]
+    .icon
+      %i.ion.ion-stats-bars
+    %span.small-box-footer{:href => "#"}
+      %i.fa.fa-info-circle
+      = number_to_percentage(percent(@item[:sold], @item[:total]), precision: 2)
+      target achieved
