@@ -1,104 +1,57 @@
-//@extend-elements
-//original selectors
-//.ion-spin, .ion-loading-a, .ion-loading-b, .ion-loading-c, .ion-loading-d, .ion-looping, .ion-refreshing, .ion-ios7-reloading
-%extend_1 {
-	animation: spin 1s infinite linear;
-}
-
-//original selectors
-//.ion-ios7-reload:before, .ion-ios7-reloading:before
-%extend_2 {
-	content: "\f28e";
-}
-
-//original selectors
-//.ion-load-a:before, .ion-loading-a:before
-%extend_3 {
-	content: "\f29a";
-}
-
-//original selectors
-//.ion-load-b:before, .ion-loading-b:before
-%extend_4 {
-	content: "\f29b";
-}
-
-//original selectors
-//.ion-load-c:before, .ion-loading-c:before
-%extend_5 {
-	content: "\f29c";
-}
-
-//original selectors
-//.ion-load-d:before, .ion-loading-d:before
-%extend_6 {
-	content: "\f29d";
-}
-
-//original selectors
-//.ion-loop:before, .ion-looping:before
-%extend_7 {
-	content: "\f201";
-}
-
-//original selectors
-//.ion-refresh:before, .ion-refreshing:before
-%extend_8 {
-	content: "\f21c";
-}
-
+//fonts
+$font_0: Ionicons;
 
 @font-face {
-	font-family: Ionicons;
+	font-family: $font_0;
 	src: url("ionicons.eot?v=1.4.0");
 	src: url("ionicons.eot?v=1.4.0#iefix") format("embedded-opentype"), url("ionicons.ttf?v=1.4.0") format("truetype"), url("ionicons.woff?v=1.4.0") format("woff"), url("ionicons.svg?v=1.4.0#Ionicons") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
 .ion-spin {
-	@extend %extend_1;
+	animation: spin 1s infinite linear;
 }
 .ion-loading-a {
-	@extend %extend_1;
+	animation: spin 1s infinite linear;
 	animation-timing-function: steps(8, start);
 	&:before {
-		@extend %extend_3;
+		content: "\f29a";
 	}
 }
 .ion-loading-b {
-	@extend %extend_1;
+	animation: spin 1s infinite linear;
 	&:before {
-		@extend %extend_4;
+		content: "\f29b";
 	}
 }
 .ion-loading-c {
-	@extend %extend_1;
+	animation: spin 1s infinite linear;
 	&:before {
-		@extend %extend_5;
+		content: "\f29c";
 	}
 }
 .ion-loading-d {
-	@extend %extend_1;
+	animation: spin 1s infinite linear;
 	&:before {
-		@extend %extend_6;
+		content: "\f29d";
 	}
 }
 .ion-looping {
-	@extend %extend_1;
+	animation: spin 1s infinite linear;
 	&:before {
-		@extend %extend_7;
+		content: "\f201";
 	}
 }
 .ion-refreshing {
-	@extend %extend_1;
+	animation: spin 1s infinite linear;
 	&:before {
-		@extend %extend_8;
+		content: "\f21c";
 	}
 }
 .ion-ios7-reloading {
-	@extend %extend_1;
+	animation: spin 1s infinite linear;
 	&:before {
-		@extend %extend_2;
+		content: "\f28e";
 	}
 }
 @-moz-keyframes spin {
@@ -1144,7 +1097,7 @@
 	content: "\f1d5";
 }
 .ion-ios7-reload:before {
-	@extend %extend_2;
+	content: "\f28e";
 }
 .ion-ios7-rewind:before {
 	content: "\f1d8";
@@ -1303,16 +1256,16 @@
 	content: "\f1fe";
 }
 .ion-load-a:before {
-	@extend %extend_3;
+	content: "\f29a";
 }
 .ion-load-b:before {
-	@extend %extend_4;
+	content: "\f29b";
 }
 .ion-load-c:before {
-	@extend %extend_5;
+	content: "\f29c";
 }
 .ion-load-d:before {
-	@extend %extend_6;
+	content: "\f29d";
 }
 .ion-location:before {
 	content: "\f1ff";
@@ -1327,7 +1280,7 @@
 	content: "\f29f";
 }
 .ion-loop:before {
-	@extend %extend_7;
+	content: "\f201";
 }
 .ion-magnet:before {
 	content: "\f2a0";
@@ -1459,7 +1412,7 @@
 	content: "\f21b";
 }
 .ion-refresh:before {
-	@extend %extend_8;
+	content: "\f21c";
 }
 .ion-reply:before {
 	content: "\f21e";

@@ -1,3 +1,10 @@
+//colors
+$color_gallery_approx: #eeeeee;
+$white: #ffffff;
+
+//fonts
+$font_0: FontAwesome;
+
 //@extend-elements
 //original selectors
 //.fa-stack-1x, .fa-stack-2x
@@ -8,227 +15,11 @@
 	text-align: center;
 }
 
-//original selectors
-//.fa-gear:before, .fa-cog:before
-%extend_2 {
-	content: "\f013";
-}
-
-//original selectors
-//.fa-rotate-right:before, .fa-repeat:before
-%extend_3 {
-	content: "\f01e";
-}
-
-//original selectors
-//.fa-dedent:before, .fa-outdent:before
-%extend_4 {
-	content: "\f03b";
-}
-
-//original selectors
-//.fa-edit:before, .fa-pencil-square-o:before
-%extend_5 {
-	content: "\f044";
-}
-
-//original selectors
-//.fa-mail-forward:before, .fa-share:before
-%extend_6 {
-	content: "\f064";
-}
-
-//original selectors
-//.fa-warning:before, .fa-exclamation-triangle:before
-%extend_7 {
-	content: "\f071";
-}
-
-//original selectors
-//.fa-gears:before, .fa-cogs:before
-%extend_8 {
-	content: "\f085";
-}
-
-//original selectors
-//.fa-group:before, .fa-users:before
-%extend_9 {
-	content: "\f0c0";
-}
-
-//original selectors
-//.fa-chain:before, .fa-link:before
-%extend_10 {
-	content: "\f0c1";
-}
-
-//original selectors
-//.fa-cut:before, .fa-scissors:before
-%extend_11 {
-	content: "\f0c4";
-}
-
-//original selectors
-//.fa-copy:before, .fa-files-o:before
-%extend_12 {
-	content: "\f0c5";
-}
-
-//original selectors
-//.fa-save:before, .fa-floppy-o:before
-%extend_13 {
-	content: "\f0c7";
-}
-
-//original selectors
-//.fa-unsorted:before, .fa-sort:before
-%extend_14 {
-	content: "\f0dc";
-}
-
-//original selectors
-//.fa-sort-down:before, .fa-sort-asc:before
-%extend_15 {
-	content: "\f0dd";
-}
-
-//original selectors
-//.fa-sort-up:before, .fa-sort-desc:before
-%extend_16 {
-	content: "\f0de";
-}
-
-//original selectors
-//.fa-rotate-left:before, .fa-undo:before
-%extend_17 {
-	content: "\f0e2";
-}
-
-//original selectors
-//.fa-legal:before, .fa-gavel:before
-%extend_18 {
-	content: "\f0e3";
-}
-
-//original selectors
-//.fa-dashboard:before, .fa-tachometer:before
-%extend_19 {
-	content: "\f0e4";
-}
-
-//original selectors
-//.fa-flash:before, .fa-bolt:before
-%extend_20 {
-	content: "\f0e7";
-}
-
-//original selectors
-//.fa-paste:before, .fa-clipboard:before
-%extend_21 {
-	content: "\f0ea";
-}
-
-//original selectors
-//.fa-mobile-phone:before, .fa-mobile:before
-%extend_22 {
-	content: "\f10b";
-}
-
-//original selectors
-//.fa-mail-reply:before, .fa-reply:before
-%extend_23 {
-	content: "\f112";
-}
-
-//original selectors
-//.fa-star-half-empty:before, .fa-star-half-full:before, .fa-star-half-o:before
-%extend_24 {
-	content: "\f123";
-}
-
-//original selectors
-//.fa-unlink:before, .fa-chain-broken:before
-%extend_25 {
-	content: "\f127";
-}
-
-//original selectors
-//.fa-toggle-down:before, .fa-caret-square-o-down:before
-%extend_26 {
-	content: "\f150";
-}
-
-//original selectors
-//.fa-toggle-up:before, .fa-caret-square-o-up:before
-%extend_27 {
-	content: "\f151";
-}
-
-//original selectors
-//.fa-toggle-right:before, .fa-caret-square-o-right:before
-%extend_28 {
-	content: "\f152";
-}
-
-//original selectors
-//.fa-euro:before, .fa-eur:before
-%extend_29 {
-	content: "\f153";
-}
-
-//original selectors
-//.fa-dollar:before, .fa-usd:before
-%extend_30 {
-	content: "\f155";
-}
-
-//original selectors
-//.fa-rupee:before, .fa-inr:before
-%extend_31 {
-	content: "\f156";
-}
-
-//original selectors
-//.fa-cny:before, .fa-rmb:before, .fa-yen:before, .fa-jpy:before
-%extend_32 {
-	content: "\f157";
-}
-
-//original selectors
-//.fa-ruble:before, .fa-rouble:before, .fa-rub:before
-%extend_33 {
-	content: "\f158";
-}
-
-//original selectors
-//.fa-won:before, .fa-krw:before
-%extend_34 {
-	content: "\f159";
-}
-
-//original selectors
-//.fa-bitcoin:before, .fa-btc:before
-%extend_35 {
-	content: "\f15a";
-}
-
-//original selectors
-//.fa-toggle-left:before, .fa-caret-square-o-left:before
-%extend_36 {
-	content: "\f191";
-}
-
-//original selectors
-//.fa-turkish-lira:before, .fa-try:before
-%extend_37 {
-	content: "\f195";
-}
-
 
 @font-face {
-	font-family: FontAwesome;
-	src: url('fontawesome-webfont.eot?v=4.0.3');
-	src: url('fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('fontawesome-webfont.woff?v=4.0.3') format('woff'), url('fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+	font-family: $font_0;
+	src: url(font-path('fontawesome-webfont.eot?v=4.0.3'));
+	src: url(font-path('fontawesome-webfont.eot?#iefix&v=4.0.3')) format('embedded-opentype'), url(font-path('fontawesome-webfont.woff?v=4.0.3')) format('woff'), url(font-path('fontawesome-webfont.ttf?v=4.0.3')) format('truetype'), url(font-path('fontawesome-webfont.svg?v=4.0.3#fontawesomeregular')) format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -273,7 +64,7 @@
 }
 .fa-border {
 	padding: .2em .25em .15em;
-	border: solid 0.08em #eeeeee;
+	border: solid 0.08em $color_gallery_approx;
 	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
 	border-radius: .1em;
 }
@@ -370,7 +161,7 @@
 	font-size: 2em;
 }
 .fa-inverse {
-	color: #ffffff;
+	color: $white;
 }
 .fa-glass:before {
 	content: "\f000";
@@ -427,10 +218,10 @@
 	content: "\f012";
 }
 .fa-gear:before {
-	@extend %extend_2;
+	content: "\f013";
 }
 .fa-cog:before {
-	@extend %extend_2;
+	content: "\f013";
 }
 .fa-trash-o:before {
 	content: "\f014";
@@ -463,10 +254,10 @@
 	content: "\f01d";
 }
 .fa-rotate-right:before {
-	@extend %extend_3;
+	content: "\f01e";
 }
 .fa-repeat:before {
-	@extend %extend_3;
+	content: "\f01e";
 }
 .fa-refresh:before {
 	content: "\f021";
@@ -547,10 +338,10 @@
 	content: "\f03a";
 }
 .fa-dedent:before {
-	@extend %extend_4;
+	content: "\f03b";
 }
 .fa-outdent:before {
-	@extend %extend_4;
+	content: "\f03b";
 }
 .fa-indent:before {
 	content: "\f03c";
@@ -574,10 +365,10 @@
 	content: "\f043";
 }
 .fa-edit:before {
-	@extend %extend_5;
+	content: "\f044";
 }
 .fa-pencil-square-o:before {
-	@extend %extend_5;
+	content: "\f044";
 }
 .fa-share-square-o:before {
 	content: "\f045";
@@ -667,10 +458,10 @@
 	content: "\f063";
 }
 .fa-mail-forward:before {
-	@extend %extend_6;
+	content: "\f064";
 }
 .fa-share:before {
-	@extend %extend_6;
+	content: "\f064";
 }
 .fa-expand:before {
 	content: "\f065";
@@ -706,10 +497,10 @@
 	content: "\f070";
 }
 .fa-warning:before {
-	@extend %extend_7;
+	content: "\f071";
 }
 .fa-exclamation-triangle:before {
-	@extend %extend_7;
+	content: "\f071";
 }
 .fa-plane:before {
 	content: "\f072";
@@ -766,10 +557,10 @@
 	content: "\f084";
 }
 .fa-gears:before {
-	@extend %extend_8;
+	content: "\f085";
 }
 .fa-cogs:before {
-	@extend %extend_8;
+	content: "\f085";
 }
 .fa-comments:before {
 	content: "\f086";
@@ -898,16 +689,16 @@
 	content: "\f0b2";
 }
 .fa-group:before {
-	@extend %extend_9;
+	content: "\f0c0";
 }
 .fa-users:before {
-	@extend %extend_9;
+	content: "\f0c0";
 }
 .fa-chain:before {
-	@extend %extend_10;
+	content: "\f0c1";
 }
 .fa-link:before {
-	@extend %extend_10;
+	content: "\f0c1";
 }
 .fa-cloud:before {
 	content: "\f0c2";
@@ -916,25 +707,25 @@
 	content: "\f0c3";
 }
 .fa-cut:before {
-	@extend %extend_11;
+	content: "\f0c4";
 }
 .fa-scissors:before {
-	@extend %extend_11;
+	content: "\f0c4";
 }
 .fa-copy:before {
-	@extend %extend_12;
+	content: "\f0c5";
 }
 .fa-files-o:before {
-	@extend %extend_12;
+	content: "\f0c5";
 }
 .fa-paperclip:before {
 	content: "\f0c6";
 }
 .fa-save:before {
-	@extend %extend_13;
+	content: "\f0c7";
 }
 .fa-floppy-o:before {
-	@extend %extend_13;
+	content: "\f0c7";
 }
 .fa-square:before {
 	content: "\f0c8";
@@ -994,22 +785,22 @@
 	content: "\f0db";
 }
 .fa-unsorted:before {
-	@extend %extend_14;
+	content: "\f0dc";
 }
 .fa-sort:before {
-	@extend %extend_14;
+	content: "\f0dc";
 }
 .fa-sort-down:before {
-	@extend %extend_15;
+	content: "\f0dd";
 }
 .fa-sort-asc:before {
-	@extend %extend_15;
+	content: "\f0dd";
 }
 .fa-sort-up:before {
-	@extend %extend_16;
+	content: "\f0de";
 }
 .fa-sort-desc:before {
-	@extend %extend_16;
+	content: "\f0de";
 }
 .fa-envelope:before {
 	content: "\f0e0";
@@ -1018,22 +809,22 @@
 	content: "\f0e1";
 }
 .fa-rotate-left:before {
-	@extend %extend_17;
+	content: "\f0e2";
 }
 .fa-undo:before {
-	@extend %extend_17;
+	content: "\f0e2";
 }
 .fa-legal:before {
-	@extend %extend_18;
+	content: "\f0e3";
 }
 .fa-gavel:before {
-	@extend %extend_18;
+	content: "\f0e3";
 }
 .fa-dashboard:before {
-	@extend %extend_19;
+	content: "\f0e4";
 }
 .fa-tachometer:before {
-	@extend %extend_19;
+	content: "\f0e4";
 }
 .fa-comment-o:before {
 	content: "\f0e5";
@@ -1042,10 +833,10 @@
 	content: "\f0e6";
 }
 .fa-flash:before {
-	@extend %extend_20;
+	content: "\f0e7";
 }
 .fa-bolt:before {
-	@extend %extend_20;
+	content: "\f0e7";
 }
 .fa-sitemap:before {
 	content: "\f0e8";
@@ -1054,10 +845,10 @@
 	content: "\f0e9";
 }
 .fa-paste:before {
-	@extend %extend_21;
+	content: "\f0ea";
 }
 .fa-clipboard:before {
-	@extend %extend_21;
+	content: "\f0ea";
 }
 .fa-lightbulb-o:before {
 	content: "\f0eb";
@@ -1150,10 +941,10 @@
 	content: "\f10a";
 }
 .fa-mobile-phone:before {
-	@extend %extend_22;
+	content: "\f10b";
 }
 .fa-mobile:before {
-	@extend %extend_22;
+	content: "\f10b";
 }
 .fa-circle-o:before {
 	content: "\f10c";
@@ -1171,10 +962,10 @@
 	content: "\f111";
 }
 .fa-mail-reply:before {
-	@extend %extend_23;
+	content: "\f112";
 }
 .fa-reply:before {
-	@extend %extend_23;
+	content: "\f112";
 }
 .fa-github-alt:before {
 	content: "\f113";
@@ -1219,13 +1010,13 @@
 	content: "\f122";
 }
 .fa-star-half-empty:before {
-	@extend %extend_24;
+	content: "\f123";
 }
 .fa-star-half-full:before {
-	@extend %extend_24;
+	content: "\f123";
 }
 .fa-star-half-o:before {
-	@extend %extend_24;
+	content: "\f123";
 }
 .fa-location-arrow:before {
 	content: "\f124";
@@ -1237,10 +1028,10 @@
 	content: "\f126";
 }
 .fa-unlink:before {
-	@extend %extend_25;
+	content: "\f127";
 }
 .fa-chain-broken:before {
-	@extend %extend_25;
+	content: "\f127";
 }
 .fa-question:before {
 	content: "\f128";
@@ -1354,76 +1145,76 @@
 	content: "\f14e";
 }
 .fa-toggle-down:before {
-	@extend %extend_26;
+	content: "\f150";
 }
 .fa-caret-square-o-down:before {
-	@extend %extend_26;
+	content: "\f150";
 }
 .fa-toggle-up:before {
-	@extend %extend_27;
+	content: "\f151";
 }
 .fa-caret-square-o-up:before {
-	@extend %extend_27;
+	content: "\f151";
 }
 .fa-toggle-right:before {
-	@extend %extend_28;
+	content: "\f152";
 }
 .fa-caret-square-o-right:before {
-	@extend %extend_28;
+	content: "\f152";
 }
 .fa-euro:before {
-	@extend %extend_29;
+	content: "\f153";
 }
 .fa-eur:before {
-	@extend %extend_29;
+	content: "\f153";
 }
 .fa-gbp:before {
 	content: "\f154";
 }
 .fa-dollar:before {
-	@extend %extend_30;
+	content: "\f155";
 }
 .fa-usd:before {
-	@extend %extend_30;
+	content: "\f155";
 }
 .fa-rupee:before {
-	@extend %extend_31;
+	content: "\f156";
 }
 .fa-inr:before {
-	@extend %extend_31;
+	content: "\f156";
 }
 .fa-cny:before {
-	@extend %extend_32;
+	content: "\f157";
 }
 .fa-rmb:before {
-	@extend %extend_32;
+	content: "\f157";
 }
 .fa-yen:before {
-	@extend %extend_32;
+	content: "\f157";
 }
 .fa-jpy:before {
-	@extend %extend_32;
+	content: "\f157";
 }
 .fa-ruble:before {
-	@extend %extend_33;
+	content: "\f158";
 }
 .fa-rouble:before {
-	@extend %extend_33;
+	content: "\f158";
 }
 .fa-rub:before {
-	@extend %extend_33;
+	content: "\f158";
 }
 .fa-won:before {
-	@extend %extend_34;
+	content: "\f159";
 }
 .fa-krw:before {
-	@extend %extend_34;
+	content: "\f159";
 }
 .fa-bitcoin:before {
-	@extend %extend_35;
+	content: "\f15a";
 }
 .fa-btc:before {
-	@extend %extend_35;
+	content: "\f15a";
 }
 .fa-file:before {
 	content: "\f15b";
@@ -1576,10 +1367,10 @@
 	content: "\f190";
 }
 .fa-toggle-left:before {
-	@extend %extend_36;
+	content: "\f191";
 }
 .fa-caret-square-o-left:before {
-	@extend %extend_36;
+	content: "\f191";
 }
 .fa-dot-circle-o:before {
 	content: "\f192";
@@ -1591,10 +1382,10 @@
 	content: "\f194";
 }
 .fa-turkish-lira:before {
-	@extend %extend_37;
+	content: "\f195";
 }
 .fa-try:before {
-	@extend %extend_37;
+	content: "\f195";
 }
 .fa-plus-square-o:before {
 	content: "\f196";

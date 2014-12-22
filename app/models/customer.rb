@@ -1,8 +1,9 @@
 class Customer < ActiveRecord::Base
   has_many :items
 
-  validates :name, :email, :phone, presence: true
-  validates :email, uniqueness: true, email: true
+  validates :name, :phone, presence: true
+  validates :name, uniqueness: { scope: :phone }
+  # validates :email, uniqueness: true, email: true, allow_blank: true
   validates :phone, numericality: { only_integer: true }
 
 
