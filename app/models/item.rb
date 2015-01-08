@@ -7,8 +7,8 @@ class Item < ActiveRecord::Base
   has_attached_file :photo, :styles => { original: "500x500>", :medium => "300x300>", mini_thumb: "50x50>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
   
-  validates :token, :code, :wholesale_price, :status, presence: true  
-  validates :token, :code, uniqueness: true
+  validates :code, :wholesale_price, :status, presence: true, unless: 'photo.present?'
+  validates :code, uniqueness: true, allow_blank: true
   validates :wholesale_price, :retail_price, :selling_price, :paid_amount, :discount, numericality: true, allow_nil: true
   
   before_validation :generate_token

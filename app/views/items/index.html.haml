@@ -24,8 +24,8 @@
             %tr
               %td= link_to (image_tag item.photo.url(:mini_thumb)), "#photo", "data-target" => "#item-photo-#{item.id}", "data-toggle" => "modal"
 
-              %td= link_to item.code, item_path(item)
-              %td= Item::SIZES[item.size.to_sym]
+              %td= link_to_if item.code.present?, item.code, item_path(item)
+              %td= Item::SIZES[item.size.try(:to_sym)]
               %td= number_to_currency item.wholesale_price
               %td= number_to_currency item.retail_price
               %td= number_to_currency item.selling_price

@@ -35,6 +35,7 @@ class ItemsController < ApplicationController
   def create
     if params[:item][:uploads].present?
       count = 0
+      errors = []
       params[:item][:uploads].each do |file|
         file_name_arr = file.original_filename.split("_")
         if file_name_arr.size >= 3
@@ -43,14 +44,17 @@ class ItemsController < ApplicationController
                           wholesale_price: file_name_arr[1].to_i,
                           size: file_name_arr[2].split(".")[0].downcase,
                           status: "in_stock"
-          count += 1 if item.save
-          logger.debug "\nCREATED: #{file.original_filename} - #{item.inspect}\n"
         else
-          logger.debug "\nSKIPPED: #{file.original_filename}\n"
+          item = Item.new photo: file, status: "in_stock"
+        end
+        if item.save
+          count += 1
+        else
+          errors << item.errors.full_messages.join("\n")
         end
       end
-      # @item = Item.create(item_params)
-      redirect_to items_path, notice: "#{count} items created of #{params[:item][:uploads].size}"
+      redirect_to items_path, notice: "#{count} items created of #{params[:item][:uploads].size}",
+                              alert: errors.join(", ")
     else
       @item = Item.new(item_params)
       if @item.save
@@ -67,7 +71,7 @@ class ItemsController < ApplicationController
     else
       render :edit
     end
-    
+
   end
 
   def destroy
