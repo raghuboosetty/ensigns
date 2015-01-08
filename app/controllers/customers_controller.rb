@@ -22,13 +22,19 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    @customer.save
-    redirect_to @customer, notice: "Successfully Created!"
+    if @customer.save
+      redirect_to @customer, notice: "Successfully Created!"
+    else
+      render :new
+    end
   end
 
   def update
-    @customer.update(customer_params)
-    redirect_to @customer, notice: "Successfully Updated!"
+    if @customer.update(customer_params)
+      redirect_to @customer, notice: "Successfully Updated!"
+    else
+      render :edit
+    end
   end
   
   def stats

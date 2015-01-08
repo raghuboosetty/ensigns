@@ -53,14 +53,21 @@ class ItemsController < ApplicationController
       redirect_to items_path, notice: "#{count} items created of #{params[:item][:uploads].size}"
     else
       @item = Item.new(item_params)
-      @item.save
-      respond_with(@item)
+      if @item.save
+        respond_with(@item)
+      else
+        render :new
+      end
     end
   end
 
   def update
-    @item.update(item_params)
-    redirect_to @item, notice: "Successfully Updated!"
+    if @item.update(item_params)
+      redirect_to @item, notice: "Successfully Updated!"
+    else
+      render :edit
+    end
+    
   end
 
   def destroy
