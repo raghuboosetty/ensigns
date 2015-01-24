@@ -1,0 +1,14 @@
+* Database
+
+  ssh root@ensigns.co.in
+  cd /home/dump
+  mysqldump -u root -p ensigns_production > ensigns_production_24_01_2015.sql
+  scp root@ensigns.co.in:/home/dump/ensigns_production_24_01_2015.sql .
+
+
+* System folder images
+
+  scp -r root@ensigns.co.in:/home/apps/ensigns/current/public/system/* public/system/
+
+
+
